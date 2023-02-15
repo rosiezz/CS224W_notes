@@ -1,0 +1,210 @@
+'''学习链接https://github.com/TommyZihao/zihao_course/tree/main/CS224W'''
+
+<span id="header-n2"></span>
+= 1 概述 =
+
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image.png|thumb|none]]
+
+<span id="header-n5"></span>
+== 1.1 任务分类 ==
+
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [1].png|thumb|none]]
+
+<span id="header-n8"></span>
+=== 1.1.1.node level:由已知的节点类别推断出未知的节点类别 ===
+
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [2].png|fig:]]<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [3].png|fig:]]
+
+<span id="header-n11"></span>
+=== 1.1.2.edge level: ===
+
+商品A和B，用户A和B，作为节点，这种图成为二分图。用户和商品之间的边表示用户是否喜欢该商品。用已知的边去预测未知的边。推荐系统<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [4].png|fig:]]<br />
+将商品的特征表征为低维向量，才能更有效的推荐商品。关键是做图嵌入，将商品映射为低维向量<br />
+ [[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [5].png|fig:]]<br />
+下图是一个例子，药物联合副作用<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [6].png|fig:]]<br />
+三角形是药物，圆形是蛋白质。药物之间存在联系及副作用。对连接进行预测和分类。<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [7].png|fig:]]
+
+<span id="header-n14"></span>
+=== 1.1.3.sub-graph level  ===
+
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [8].png|fig:]]<br />
+下图是谷歌地图的背后逻辑：<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [9].png|fig:]]
+
+<span id="header-n17"></span>
+=== 1.1.4.graph-level ===
+
+抗生素的药物分子设计 <br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [10].png|fig:]]<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [11].png|fig:]]<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [12].png|fig:]]<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [13].png|fig:]]<br />
+物理模拟：<br />
+例：粒子作为节点，粒子之间的作用力作为边，预测粒子在下一时刻的位置和速度<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [14].png|fig:]]<br />
+[[File:D:\guan\typora_notes\图机器学习\L1-1图机器学习概述：任务实例_files\Image [15].png|fig:]]
+
+2022年有三个人工智能技术取得了革命性的进展AI画画(AIGC),CHATGPT对话机器人，AlphaFold蛋白质空间预测
+
+<span id="header-n20"></span>
+== 1.2 价值 ==
+
+readpaper文献搜索
+
+BIOS：医疗知识图谱bios.idea.edu.cn
+
+知识图谱专家：刘焕勇
+
+谷歌插件Hypercrx :perceptor工具栏，可以看到项目关系网络图和项目活跃开发协作网络图，可以定量分析一个项目的活跃度和影响力
+
+开源项目和开源企业排行榜：https://open-eaderboard.x-lab.info
+
+赵生宇http://open-galaxy.x-lab.info 开源项目信息
+
+<span id="header-n27"></span>
+= 2 图的基本表示 =
+
+<blockquote>传统：样本独立同分布；
+
+图自带关联数据结构
+</blockquote>
+<span id="header-n31"></span>
+== # 图神经网络 ==
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image.png|fig:]] 
+
+自动学习图的特征，不需要人干预和指定。端到端的学习
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [1].png|thumb|none]]
+
+图神经网络可以自动把一个节点变成一个低维向量，称之为图嵌入。而这个低维向量包含了这个节点在原图中的连接信息、结构信息和语义信息。
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [2].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [3].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [4].png|thumb|none]]
+
+ 
+
+<span id="header-n40"></span>
+== 2.1 图的组成 ==
+
+ 
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [5].png|thumb|none]]
+
+ 
+
+<span id="header-n44"></span>
+== 2.2图的本体表示 ==
+
+（节点表示什么，边表示什么），如何设计呢：根据任务
+
+ [[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [6].png|fig:]]
+
+ 
+
+<span id="header-n48"></span>
+== 2.3图的种类 ==
+
+<span id="header-n49"></span>
+=== 2.3.1 无向图和有向图 ===
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [7].png|thumb|none]]
+
+<span id="header-n51"></span>
+=== 2.3.2异质图：很多图都是异质图 ===
+
+ [[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [8].png|fig:]]
+
+ 节点有两类为二分图
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [9].png|thumb|none]]
+
+ 二分图展开为folded network
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [10].png|thumb|none]]
+
+<span id="header-n57"></span>
+=== 2.3.3.无权图和有权图 ===
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [19].png|thumb|none]]
+
+self-loop和multigraph
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [20].png|thumb|none]]
+
+<span id="header-n61"></span>
+== 2.4 节点连接数：node degrees ==
+
+平均度，有向图分为入度和出度
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [11].png|thumb|none]]
+
+ 
+
+<span id="header-n65"></span>
+== 2.5 图的基本表示 ==
+
+<span id="header-n66"></span>
+=== 2.5.1.邻接矩阵 ===
+
+无向图是对称阵，有向图不是
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [12].png|thumb|none]]
+
+无向图度的计算是，某行和列求和，即节点2的度是邻接矩阵第二行和第二列的求和
+
+连接总数：所有元素求和后的一半
+
+有向图度的计算是，入度是某节点的列求和，出度是某节点的行求和
+
+连接总数：所有非零元素求和
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [13].png|thumb|none]]
+
+为什么要把图表示成邻接矩阵：因为邻接矩阵保留了图的所有信息，相当于把图翻译成了计算机可读语言
+
+网络很多都是稀疏网络，此时用邻接矩阵表示会非常占内存，不划算
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [14].png|thumb|none]]
+
+<span id="header-n77"></span>
+=== 2.5.2.连接列表 ===
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [15].png|thumb|none]]
+
+<span id="header-n79"></span>
+=== 2.5.3.邻接列表 ===
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [16].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [17].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [18].png|thumb|none]]
+
+<span id="header-n83"></span>
+== 2.6 图的连通性 ==
+
+connected graph:任意两点之间都有通路
+
+disconnected graph
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [21].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [22].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [23].png|thumb|none]]
+
+[[File:D:\guan\typora_notes\图机器学习\L1-2图机器学习-图的基本表示_files\Image [24].png|thumb|none]]
+
+ 
+
+ 
+
+ 
